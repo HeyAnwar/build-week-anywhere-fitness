@@ -16,10 +16,22 @@ exports.up = async (knex) => {
         .onUpdate('RESTRICT')
         .onDelete('RESTRICT')
     })
+    .createTable('classes', classes => {
+      classes.increments('class_id')
+      classes.string('class_name', 32).notNullable().unique()
+      classes.string('type').notNullable()
+      classes.integer('time').notNullable()
+      classes.integer('duration').notNullable()
+      classes.string('intensity').notNullable()
+      classes.string('location').notNullable()
+      classes.integer('attendees').notNullable()
+      classes.integer('class-size').notNullable()
+    })
 }
 
 exports.down = async (knex) => {
   await knex.schema
+  .dropTableIfExists('classes')
   .dropTableIfExists('users')
   .dropTableIfExists('roles')
 }
