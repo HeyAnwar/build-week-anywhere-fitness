@@ -25,7 +25,7 @@ exports.up = async (knex) => {
       classes.string('intensity').notNullable()
       classes.string('location').notNullable()
       classes.integer('attendees').notNullable()
-      classes.integer('class-size').notNullable()
+      classes.integer('size').notNullable()
     })
 }
 
