@@ -43,6 +43,4 @@ function buildToken(user) {
     return jwt.sign(payload, JWT_SECRET, options)
   }
 
-module.exports = {
-    router
-}
+module.exports = router
